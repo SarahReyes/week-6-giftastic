@@ -2,19 +2,31 @@
 <html>
   <head>
     <title>GIFTASTIC</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script type="text/javascript"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Oxygen|Sigmar+One" rel="stylesheet">
   </head>
 
   <body>
-    <div class="container">
-
     <!-- buttons for user to click -->
-    <!-- bootstrap for user to enter their own animal -->
+    <button data-show="30 Rock">30 Rock</button>
+    <button data-show="Downton Abbey">Downton Abbey</button>
+    <button data-show="Mr. Robot">Mr. Robot</button>
+    <button data-show="Mad Men">Mad Men</button>
 
+    <div id="gifsAppearHere"></div>
 
-
-
+    <div class="container">
+      <!-- bootstrap for user to enter their own animal -->
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="exampleInputName2">Add a TV Show</label>
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="example: Daredevil">
+        </div>
+        <button type="submit" class="btn btn-primary">SUBMIT</button>
+      </form>
     </div>
 
   </body>

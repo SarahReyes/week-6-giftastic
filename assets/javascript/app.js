@@ -1,5 +1,5 @@
 
-// KEY: "dc6zaTOxFJmzC”
+// ["30 Rock", "How I Met Your Mother", "Downton Abbey", "Mr. Robot", "Mad Men"];
 
 // create a data-still attribute with the URL for the
 // still image and a data-animate attribute for the URL of the
@@ -19,13 +19,39 @@
 // when the user clicks a new button, the previous gif go away
 // rating will display with the gif, up to pg-13
 
-var tvShows = ["30 Rock", "How I Met Your Mother", "Downton Abbey", "Mr. Robot", "Mad Men"];
+// bonus: have a little tv video with static playing
 
-    var queryURL = "https://api.giphy.com/
+$(document).ready(function() {
+  $('button').on('click', function(){
+    var tvShows = $(this).data('show');
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + tvShows + "&api_key=dc6zaTOxFJmzC&limit=5";
 
+    $.ajax({
+      url: queryURL,
+      method: 'GET'
+    })
+    .done(function(response) {
+      // check the JSON
+      console.log(queryURL);
+      console.log(response);
 
-      $(document).ready(function() {
+      // create a variable for grabbing the data
+      var results = response.data;
 
-
-
-      });
+      for (var i = 0; i < response.data.length; i++) {
+        // div to hold the image and rating
+        var tvShowDiv = $('<div>');
+        // create a paragraph tag to hold the rating
+        var gifRating = $('<p>').text("RATING: " + results[i].rating);
+        // create an img tag for the gif
+        var gifImage = $('<img src="' + results[i].images.fixed_height.url + '">');
+        // append the rating to the div
+        tvShowDiv.append(gifRating);
+        // append gifImage to the div
+        tvShowDiv.append(gifImage);
+        // prepend the div to a bigger div that holds all of the gifs that appear
+        $('#gifsAppearHere').prepend(tvShowDiv);
+      }
+    });
+  });
+});
