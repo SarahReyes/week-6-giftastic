@@ -5,7 +5,14 @@ font-family: 'Luckiest Guy', cursive;
 */
 body{
   font-family: 'Sigmar One', cursive;
+  margin: 30px;
+  text-align: center;
 }
 button {
   font-family: 'Sigmar One', cursive;
+  margin: 5px;
+}
+#gifs-appear-here {
+  text-align: left;
+  float: left;
 }

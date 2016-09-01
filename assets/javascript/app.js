@@ -21,12 +21,23 @@
 
 // bonus: have a little tv video with static playing
 
-var shows =
+var shows = ["30 Rock", "Full House", "Downton Abbey", "Mr. Robot", "Freaks and Geeks", "Ducktales", "Breaking Bad"];
 
 $(document).ready(function() {
+    // loop through the array of tv shows
+    for (var i = 0; i < shows.length; i++) {
+        // create a button tag
+        var buttonDisplay = $('<button>');
+        // add the attribute data-name to each show
+        buttonDisplay.attr('data-name', shows[i]);
+        // add the button text
+        buttonDisplay.text(shows[i]);
+        // append the button to the div
+        $('.buttons-appear-here').append(buttonDisplay);
+    }
     $('button').on('click', function(){
-        var tvShow = $(this).data('show');
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + tvShow + "&api_key=dc6zaTOxFJmzC&limit=5";
+        var tvShow = $(this).data('shows');
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + tvShow + "&api_key=dc6zaTOxFJmzC&limit=6";
 
         $.ajax({
             url: queryURL,
@@ -36,31 +47,18 @@ $(document).ready(function() {
             // check the JSON
             console.log(queryURL);
             console.log(response);
-
             // create a variable for grabbing the data
             var results = response.data;
 
-
-
-
-            // This function handles events where one button is clicked
+            // user clicks submit button function
             $('.btn btn-primary').on('click', function(){
-
-                // This line of code will grab the input from the textbox
-                var show = $('.form-control').val().trim();
-
-                // The movie from the textbox is then added to our array
-                movies.push(movie);
-
-                // Our array then runs which handles the processing of our movie array
-                renderButtons();
-
-                // We have this line so that users can hit "enter" instead of clicking on ht button and it won't move to the next page
-                return false;
-            })
-
-
-
+                // grab the value from the text box
+                var userShow = $('#inputShowName').val().trim();
+                // add the value to the array
+                shows.push(userShow);
+                //testing the submit button
+                console.log("I entered " + userShow);
+            });
 
 
             for (var i = 0; i < response.data.length; i++) {
@@ -74,7 +72,7 @@ $(document).ready(function() {
                 // append gifImage to the div
                 tvShowDiv.append(gifImage);
                 // prepend the div to a bigger div that holds all of the gifs that appear
-                $('#gifsAppearHere').prepend(tvShowDiv);
+                $('#gifs-appear-here').prepend(tvShowDiv);
 
                 // create an img tag for the gif
                 var gifImage = $('<img>');
@@ -89,6 +87,7 @@ $(document).ready(function() {
                 gifImage.attr('data-state', 'still');
             }
             $('img').on('click', function() {
+                // test the click
                 console.log("I clicked");
                 // set a variable to attribute the data state
                 var stateOfGif = $(this).attr('data-state');

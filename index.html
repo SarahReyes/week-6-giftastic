@@ -10,27 +10,34 @@
   </head>
 
   <body>
-    <!-- buttons for user to click -->
-    <button data-show="30 Rock">30 Rock</button>
-    <button data-show="Full House">Full House</button>
-    <button data-show="Downton Abbey">Downton Abbey</button>
-    <button data-show="Freaks and Geeks">Freaks and Geeks</button>
-    <button data-show="Mr. Robot">Mr. Robot</button>
-    <button data-show="Breaking Bad">Breaking Bad</button>
-    <button data-show="Ducktales">Ducktales</button>
-    <button data-show="The Simpsons">The Simpsons</button>
-
     <div class="container">
+      <h1>TV SHOW GIFS</h1>
+      <!-- div for the buttons -->
+      <div class="buttons-appear-here"></div>
+
+
       <!-- bootstrap for user to enter their own animal -->
-      <form class="form-inline">
-        <div class="form-group">
-          <label for="exampleInputName2">Add a TV Show</label>
-          <input type="text" class="form-control" id="exampleInputName2" placeholder="example: Daredevil">
-        </div>
-        <button type="submit" class="btn btn-primary">SUBMIT</button>
+      <form class="shows-form">
+        <label for="inputShowName">Add a TV Show</label>
+        <input type="text" class="form-control" id="inputShowName" placeholder="example: Daredevil">
+        <button type="submit" class="btn btn-primary" value="Click To Add">CLICK TO ADD</button>
       </form>
+
+
+      <form id="movie-form">
+        <label for="movie-input">Add a Movie Bro</label>
+        <input type="text" id="movie-input"><br>
+        <!-- Button triggers new movie to be added -->
+        <input id="addMovie" type="submit" value="Add a Movie Bro">
+      </form>
+
+
+
+
+
+
       <!-- div for the gifs -->
-      <div id="gifsAppearHere"></div>
+      <div id="gifs-appear-here"></div>
 
     </div>
 
