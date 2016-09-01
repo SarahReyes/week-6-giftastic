@@ -28,16 +28,17 @@ $(document).ready(function() {
     for (var i = 0; i < shows.length; i++) {
         // create a button tag
         var buttonDisplay = $('<button>');
-        // add the attribute data-name to each show
-        buttonDisplay.attr('data-name', shows[i]);
+        //add the attribute data-show
+        buttonDisplay.attr('data-show', shows[i]);
         // add the button text
         buttonDisplay.text(shows[i]);
         // append the button to the div
         $('.buttons-appear-here').append(buttonDisplay);
     }
     $('button').on('click', function(){
-        var tvShow = $(this).data('shows');
+        var tvShow = $(this).data('show');
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + tvShow + "&api_key=dc6zaTOxFJmzC&limit=6";
+        console.log(tvShow);
 
         $.ajax({
             url: queryURL,
