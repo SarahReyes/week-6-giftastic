@@ -1,25 +1,31 @@
 <!DOCTYPEhtml>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>GIFTASTIC</title>
+
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Oxygen|Sigmar+One" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Oxygen|Sigmar+One" rel="stylesheet">
   </head>
 
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <h1>TV SHOW GIFS</h1>
       <!-- div for the buttons -->
-      <div class="buttons-appear-here"></div>
-      
+      <div class="btn buttons-appear-here"></div>
+
       <!-- bootstrap for user to enter their own animal -->
-      <form class="shows-form">
+      <form class="form-group">
         <label for="inputShowName">Add a TV Show</label>
         <input type="text" class="form-control" id="inputShowName" placeholder="example: Daredevil">
-        <button type="submit" class="btn btn-primary" value="Click To Add">CLICK TO ADD</button>
+        <button type="submit" class="btn btn-primary">CLICK TO ADD</button>
       </form>
 
       <!-- div for the gifs -->
