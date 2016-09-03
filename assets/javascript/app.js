@@ -3,25 +3,29 @@
 var shows = ["30 Rock", "Full House", "Downton Abbey", "Mr. Robot", "Freaks and Geeks", "Ducktales", "Breaking Bad"];
 
 $(document).ready(function() {
+
+
     function displayAllButtons () {
         // loop through the array of tv shows
         for (var i = 0; i < shows.length; i++) {
             // create a button tag
-            var buttonDisplay = $('<button>');
+            var buttonDisplay = $('<button type="button" class="btn btn-primary btn-lg">');
             //add the attribute data-show
             buttonDisplay.attr('data-show', shows[i]);
+            // add class
+            buttonDisplay.addClass("show-buttons");
             // add the button text
             buttonDisplay.text(shows[i]);
             // append the button to the div
-            $('.btn.buttons-appear-here').append(buttonDisplay);
+            $('.buttons-appear-here').append(buttonDisplay);
         }
     }
     displayAllButtons();
 
     // user clicks submit button function
-    $('.btn.btn-primary').on('click', function(event){
+    $('#submit-tv-show').on('click', function(event){
         // code to stop buttons from repeat posting to HTML
-        $('.btn.buttons-appear-here').empty();
+        $('.buttons-appear-here').empty();
         // prevent the page from re-loading
         event.preventDefault();
         // grab the value from the text box
@@ -37,16 +41,12 @@ $(document).ready(function() {
     });
 
     function gifAction () {
-        $('button').on('click', function(){
+        $('.show-buttons').on('click', function(){
             var tvShow = $(this).data('show');
             var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + tvShow + "&api_key=dc6zaTOxFJmzC&limit=6";
             console.log(tvShow);
 
-            $.ajax({
-                url: queryURL,
-                method: 'GET'
-            })
-            .done(function(response) {
+            $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
                 // check the JSON
                 console.log(queryURL);
                 console.log(response);
